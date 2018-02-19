@@ -1,6 +1,6 @@
 ## SI 364 - Winter 2018
 ## HW 3
-
+## Work with Rachel Chang, Hanshen Wang
 ####################
 ## Import statements
 ####################
@@ -236,12 +236,16 @@ def see_all_users():
 def get_longest_tweet():
     all_tweets = Tweet.query.all()
     longest_tweet = ''
+    length_count = 0
     for t in all_tweets:
-        length_count = 0
         length_tweet = len(str(t.text)) - str(t.text).count(' ')
+        print(length_tweet)
         if length_count < length_tweet:
+            print('IN')
             length_count = length_tweet
             longest_tweet = t
+            print(length_count)
+            print(t)
     tweet_user = User.query.filter_by(id=longest_tweet.user_id).first()
     final = (longest_tweet.text, tweet_user.username)
     return render_template('longest_tweet.html', tw=final)

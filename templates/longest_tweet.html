@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+<li>{{ tw[0] }}<br><i>posted by</i> <strong>@{{ tw[1] }}</strong></li><br><br>
+</ul>
+
+
+{% if not tw %}
+    There are no saved tweets to show.
+{% endif %}
+
+{% endblock %}
