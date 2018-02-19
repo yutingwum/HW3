@@ -81,7 +81,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64))
     display_name = db.Column(db.String(124))
-    #tweets = db.relationship('Tweet',backref='User')
+    tweets = db.relationship('Tweet',backref='User')
 
     def __repr__(self):
         return '{username %r} | ID: {%a}' %  (self.username, self.id)
